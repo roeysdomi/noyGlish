@@ -1,0 +1,35 @@
+/* src/index.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', sans-serif;
+  /* font-family: 'Roboto Slab', serif; */
+    font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.borders {
+  border: 2px solid red ;
+}
+.borders-black {
+  border: 2px solid black ;
+}
+.flex-center-center{
+  display: flex;
+  justify-content: center;
+   align-items: center;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.custom-scrollbar {
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
