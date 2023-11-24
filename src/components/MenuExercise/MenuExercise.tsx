@@ -81,14 +81,14 @@ const Exercise = ({ data, task, setChosenExercise }: { data: number; task: TaskD
       className="exercise-con bg-green-200 text-green-900 flex-center-center w-full h-[10%] border-b-2 border-green-300 active:scale-95 hover:bg-green-900 hover:text-white cursor-pointer"
     >
       <div className="title">Exercise {data} #</div>
-      {/* <div
+      <div
         className="delete cursor-pointer"
         onClick={() => {
           deleteTask(task._id);
         }}
       >
         delete
-      </div> */}
+      </div>
     </div>
   );
 };

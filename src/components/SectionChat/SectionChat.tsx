@@ -52,8 +52,8 @@ const AiChat = ({ checkedText }: { checkedText: any }) => {
             className="rounded-2xl bg-green-600   text-white w-full p-3 m-2 relative cursor-pointer"
             onClick={() => {
               console.log(tense);
-              const tenseConnected= tense.split(" ").join('')
-              setChosenCase(tenseConnected as chosenCaseType)
+              const tenseConnected = tense.split(" ").join("");
+              setChosenCase(tenseConnected as chosenCaseType);
               setOpenUseCase(true);
             }}
           >
@@ -76,10 +76,7 @@ const UseCase = ({
   setChosenCase: React.Dispatch<React.SetStateAction<chosenCaseType>>;
   openUseCase: boolean;
   setOpenUseCase: React.Dispatch<React.SetStateAction<boolean>>;
-  }) => {
-  
- 
-
+}) => {
   if (!openUseCase) return <></>;
   return (
     <div className="useCase absolute w-full overflow-y-scroll h-full  p-4 top-0 left-0 bg-white text-black rounded-2xl">
@@ -122,7 +119,7 @@ const HumanChat = ({ setCheckedText, copyForAi, checkedText }: { setCheckedText:
     if (chosenExercise) {
       console.log("saved task");
       const { _id, date, task_text, grammar } = chosenExercise;
-      updateTask(chosenExercise._id, { date, task_text, grammar, user_solution: checkedText[0] as string });
+      updateTask(chosenExercise._id, { date, task_text, grammar, user_solution: humanInput as string });
     }
   }
 
@@ -136,23 +133,24 @@ const HumanChat = ({ setCheckedText, copyForAi, checkedText }: { setCheckedText:
           <div
             contentEditable={true}
             suppressContentEditableWarning={true}
-            className="w-full h-[95%] bg-slate-100 rounded-2xl focus:border-transparent p-4 text-2xl focus:outline-none focus:ring-0 focus:shadow-none resize-none "
+            className="w-full h-[95%] bg-slate-100 rounded-2xl focus:border-transparent p-4 text-2xl focus:outline-none focus:ring-0 focus:shadow-none resize-none overflow-scroll"
             onInput={(e) => {
               const target = e.target as HTMLDivElement;
 
               setHumanInput(target.innerText);
             }}
           >
-            {chosenExercise && chosenExercise.user_solution}
+            <pre className="whitespace-pre-wrap">{chosenExercise && chosenExercise.user_solution}</pre>
           </div>
           <div className="buttons flex-center-center flex flex-col">
             <button
               className="bg-purple-500 text-white rounded-md text-sm  block p-1 m-3 hover:scale-110 active:scale-95 "
               onClick={() => {
-                setFixes();
+                saveLastTask();
+                // setFixes();
               }}
             >
-              {loading ? "LOADING" : "grammar check"}
+              {loading ? "LOADING" : "save"}
             </button>
             <button
               className="bg-emerald-800 text-white rounded-md text-sm  block p-4 m-3 hover:scale-110 active:scale-95 "
